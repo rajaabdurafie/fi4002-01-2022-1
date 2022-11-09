@@ -1,32 +1,31 @@
-# 1021XABC
-NamaLengkap
+# 10219019
+Abdu Rafie
 
 
 ## materi sebelumnya
-+ Tuliskan materi-materi sebelumnya yang telah diberikan dalam kuliah ini.
++ Runge-kutta, monte carlo, fourier, dll
 
 
 ## materi paling menarik
-+ Tuliskan materi yang paling menarik yang telah diberikan dan jelaskan mengapa menarik.
++ Runge-kutta orde 4 karena saya melihat metode tersebut dapat di aplikasikan pada banyak hal
 
 
 ## materi paling membosankan
-+ Tuliskan materi yang telah diberikan yang paling membosankan dan jelaskan alasannya.
++ Runge-kutta orde 4 karena diulang-ulang terus
 
 
 ## materi yang sudah dipami
-+ Tuliskan materi-materi yang telah dipahami.
-
++ Runge-kutta orde 4
 
 ## materi yang belum dipahami
-+ Tuliskan materi-materi yang masih belum dipahami dan bagian mana yang belum serta ingin dipahami.
++ monte carlo karena saya belum baca-baca dan explore lebih dalam
 
 
 ## contoh program
-+ Buat suatu contoh program dalam Python dan sertakan di sini dengan hasil keluarnnya.
++ import numpy as np
+import matplotlib.pyplot as plt
 
-```python
-# contoh program python
+# implementasi runge kutta
 
 def integrate(F,x,y,xStop,h):
     def runkut4(F,x,y,h):
@@ -68,14 +67,8 @@ X,Y = integrate(F,x,y,xStop,h)
 plt.plot(X,Y,'o-')
 plt.xlabel('x');plt.ylabel('V')
 
-Hasilnya adalah
-
-```
-```
-
-
 ## cara perkuliahan
-+ Tuliskan pendapat Anda mengenai cara perkuliahan selama ini dan cantumkan usulan untuk perkuliahan setelah UTS.
++ Baru terjadi 2x kuliah setelah uts. Yang pertama saya nggak masuk karena nggak enak badan, yang kedua (tadi) tidak banyak yang disampaikan.
 
 
 ## topik sistem fisis
