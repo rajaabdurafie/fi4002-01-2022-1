@@ -92,8 +92,8 @@ Hasilnya adalah
 
 
 ## topik sistem fisis
-+ Tuliskan sistem fisis yang menarik bagi Anda untuk dikaji lebih dalam dan jelaskan alasannya mengapa.
++ Sistem fisis yang cukup menarik bagi saya adalah tentang ekonofisika yang memiliki hubungan dengan pasar saham karena saya sering mengamati pergerakan saham dan ingin mencoba mencari sudut pandang lain.
 
 
 ## simulasi dan visualisasi
-+ Apakah Anda tertarik dengan simulasi dan visualisasi? Jelaskan topik yang ingin Anda simulasikan / visualisasikan serta cantumkan alasannya dan perkiraan pusataka Python yang perlu digunakan.
++ Tertarik. Sejauh ini saya mencari cari tentang metode LSTM. Metode tersebut dapat memprediksi harga saham kedepan nya.
