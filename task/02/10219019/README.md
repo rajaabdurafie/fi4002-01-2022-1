@@ -22,50 +22,70 @@ Abdu Rafie
 
 
 ## contoh program
-+ import numpy as np
++ Buat suatu contoh program dalam Python dan sertakan di sini dengan hasil keluarnnya.
+
+
+```python
+# Mendefinisikan library
+import numpy as np
 import matplotlib.pyplot as plt
 
-# implementasi runge kutta
+def F(t, x, y):
+    return (-x + (x * y), y - (x * y))
+    
+# Mendefinisikan euler method
+def eulerMethod(t_0, t_n, num_steps, x_0, y_0):
+    h = abs(t_n - t_0)/num_steps
+    t = np.linspace(t_0, t_n, num_steps + 1)
+    x = np.zeros(num_steps + 1)
+    y = np.zeros(num_steps + 1)
+    x[0] = x_0
+    y[0] = y_0
+    for k in range(0, num_steps):
+        (dx, dy) = F(t[k], x[k], y[k])
+        x[k + 1] = x[k] + h * dx
+        y[k + 1] = y[k] + h * dy
+    return (x, y)
+    
+    
+# Mendefinisikan Runge Kutta method
+def rungeKutta(t_0, t_n, num_steps, x_0, y_0):
+    h = abs(t_n - t_0)/num_steps
+    t = np.linspace(t_0, t_n , num_steps + 1)
+    x = np.zeros(num_steps + 1)
+    y = np.zeros(num_steps + 1)
+    x[0] = x_0
+    y[0] = y_0
+    for k in range(0, num_steps):
+        (x1, y1) = F(t[k], x[k], y[k])
+        (x2, y2) = F(t[k] + h/2, x[k] + x1 * h/2, y[k] + y1 * h/2)
+        (x3, y3) = F(t[k] + h/2, x[k] + x2 * h/2, y[k] + y2 * h/2)
+        (x4, y4) = F(t[k] + h, x[k] + x3 * h, y[k] + y3*h)
+        x[k + 1] = x[k] + h * (x1 + 2 * x2 + 2 * x3 + x4)/6
+        y[k + 1] = y[k] + h * (y1 + 2 * y2 + 2 * y3 + y4)/6
+    return (x,y)
+    
+# Input nilai parameter yang dibutuhkan
+t_0 = 0
+t_n = 100
+x_0 = 0.3
+y_0 = 2
+num_steps = 3000
 
-def integrate(F,x,y,xStop,h):
-    def runkut4(F,x,y,h):
-        k0 = F(x, y)
-        k1 = F(x + h / 2.0, y + k0 / 2.0)
-        k2 = F(x + h / 2.0, y + k1 / 2.0)
-        k3 = F(x + h, y + k2)
-        return h*(k0+2.0*k1+2.0*k2+k3)/6.0
+# Plotting grafik yang diperoleh berdasarkan
+# persamaan euler untuk visualisasi predator - prey
+plt.figure(1)
+(x_pt,y_pt) = eulerMethod(t_0, t_n, num_steps, x_0, y_0)
+plt.plot(x_pt,y_pt,color='blue',label='Euler')
+plt.title('Grafik Populasi Predator Terhadap Mangsa - Persamaan Euler')
+plt.xlabel('Populasi Predator')
+plt.ylabel('Populasi Mangsa')
+plt.axis([-1, 5, -1, 5])
+plt.savefig('Figure (1) Grafik Predator - Prey berdasarkan Persamaan Euler.png')
+```
 
-    X = []
-    Y = []
-    X.append(x)
-    Y.append(y)
-    while x < xStop:
-        h = min(h, xStop)
-        y = y + runkut4(F,x,y,h)
-        x = x + h
-        X.append(x)
-        Y.append(y)
-    return np.array(X),np.array(Y)
-
-
-m = 3727.379
-E = 20
-V = 0
-h_bar = 197.3269804
-alpha = 2*m*(E-V)/(h_bar*h_bar)
-
-def F(x,y):
-    F = - alpha*y
-    return F
-
-x = 0.0
-xStop = 50
-y = 0.1
-h = 0.1
-X,Y = integrate(F,x,y,xStop,h)
-
-plt.plot(X,Y,'o-')
-plt.xlabel('x');plt.ylabel('V')
+Hasilnya adalah
+<img width="230" alt="Predator Prey" src="https://user-images.githubusercontent.com/97975571/197973220-7d1fb891-9a0c-460f-acf2-13507148406b.png">
 
 ## cara perkuliahan
 + Baru terjadi 2x kuliah setelah uts. Yang pertama saya nggak masuk karena nggak enak badan, yang kedua (tadi) tidak banyak yang disampaikan.
