@@ -27,7 +27,46 @@ NamaLengkap
 
 ```python
 # contoh program python
-```
+
+def integrate(F,x,y,xStop,h):
+    def runkut4(F,x,y,h):
+        k0 = F(x, y)
+        k1 = F(x + h / 2.0, y + k0 / 2.0)
+        k2 = F(x + h / 2.0, y + k1 / 2.0)
+        k3 = F(x + h, y + k2)
+        return h*(k0+2.0*k1+2.0*k2+k3)/6.0
+
+    X = []
+    Y = []
+    X.append(x)
+    Y.append(y)
+    while x < xStop:
+        h = min(h, xStop)
+        y = y + runkut4(F,x,y,h)
+        x = x + h
+        X.append(x)
+        Y.append(y)
+    return np.array(X),np.array(Y)
+
+
+m = 3727.379
+E = 20
+V = 0
+h_bar = 197.3269804
+alpha = 2*m*(E-V)/(h_bar*h_bar)
+
+def F(x,y):
+    F = - alpha*y
+    return F
+
+x = 0.0
+xStop = 50
+y = 0.1
+h = 0.1
+X,Y = integrate(F,x,y,xStop,h)
+
+plt.plot(X,Y,'o-')
+plt.xlabel('x');plt.ylabel('V')
 
 Hasilnya adalah
 
